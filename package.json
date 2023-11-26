@@ -1,0 +1,20 @@
+{
+  "name": "carbon-it-adventurers",
+  "version": "1.0.0",
+  "description": "Project for technical test in Carbon IT company",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "treasure-hunt": "node ./app/index.js",
+    "lint": "eslint . --fix"
+  },
+  "author": "Benjamin HEROULT",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "3.1.0"
+  }
+}
