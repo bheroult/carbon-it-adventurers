@@ -1,12 +1,17 @@
+import gameRunner from './services/game-runner.js'
+import instructionsParser from './services/instructions-parser.js'
 import { readFile, writeFile } from './utils/file-manager.js'
 
 const ENTRY_FILE_PATH = './entries.txt'
 const OUTPUT_FILE_PATH = './output.txt'
 
-console.log('read file')
-
 readFile(ENTRY_FILE_PATH).then((fileContent) => {
-    console.log('content', fileContent)
+    const gameBoard = instructionsParser(fileContent)
 
-    return writeFile(OUTPUT_FILE_PATH, fileContent)
+    console.log('Board built')
+    console.log('Running game')
+
+    const gameOutput = gameRunner(gameBoard)
+
+    return writeFile(OUTPUT_FILE_PATH, gameOutput)
 })
