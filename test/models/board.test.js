@@ -178,7 +178,7 @@ describe('board class', () => {
                 board.map[positionX][positionY] = 'Alan'
                 board.clearPosition([positionX, positionY])
             })
-            
+
             test('reset position value to undefined', () => {
                 expect(board.map[positionX][positionY]).toBeUndefined
             })

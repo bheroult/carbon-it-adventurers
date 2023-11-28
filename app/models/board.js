@@ -56,7 +56,7 @@ export default class Board {
             const newPosition = adventurer.computeNextPositionForNextMovement()
 
             const xOutOfMap = newPosition[0] >= this.mapDimensionX || newPosition[0] < 0
-            const yOutOfMap = newPosition[1] >= this.mapDimensionY|| newPosition[1] < 0
+            const yOutOfMap = newPosition[1] >= this.mapDimensionY || newPosition[1] < 0
             if (this.isOutOfMap(newPosition)) return
 
             const positionCurrentValue = this.map[newPosition[0]][newPosition[1]]
@@ -71,11 +71,23 @@ export default class Board {
             if (positionDoesNotChange || positionCannotBeOccupied) {
                 return
             }
-            this.handleAdventurerTakingPosition(adventurer, positionIsFree, positionCurrentValue, newPosition, oldPosition)
+            this.handleAdventurerTakingPosition(
+                adventurer,
+                positionIsFree,
+                positionCurrentValue,
+                newPosition,
+                oldPosition
+            )
         })
     }
 
-    handleAdventurerTakingPosition(adventurer, positionIsFree, positionCurrentValue, newPosition, oldPosition) {
+    handleAdventurerTakingPosition(
+        adventurer,
+        positionIsFree,
+        positionCurrentValue,
+        newPosition,
+        oldPosition
+    ) {
         if (!positionIsFree) {
             const nbOfTreasures = parseInt(positionCurrentValue)
             const hasTreasure = nbOfTreasures > 0
@@ -87,8 +99,7 @@ export default class Board {
                 const matchingTreasure = this.getTreasureForCoordinates(newPosition)
                 matchingTreasure.remainingTreasures = nbOfTreasures - 1
             } else {
-                this.map[newPosition[0]][newPosition[1]] =
-                    `${adventurer.name} - ${nbOfTreasures}`
+                this.map[newPosition[0]][newPosition[1]] = `${adventurer.name} - ${nbOfTreasures}`
             }
         } else {
             this.map[newPosition[0]][newPosition[1]] = adventurer.name

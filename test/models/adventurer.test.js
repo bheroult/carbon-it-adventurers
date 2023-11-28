@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals'
-import Adventurer from "../../app/models/adventurer.js"
+import Adventurer from '../../app/models/adventurer.js'
 
 describe('adventurer class', () => {
     let adventurer
@@ -20,7 +20,7 @@ describe('adventurer class', () => {
                 expect(result).toEqual([2, 2])
             })
 
-            test('does not update direction', () =>  {
+            test('does not update direction', () => {
                 expect(adventurer.direction).toEqual('N')
             })
         })
@@ -35,7 +35,7 @@ describe('adventurer class', () => {
                 expect(result).toEqual([2, 2])
             })
 
-            test('updates direction', () =>  {
+            test('updates direction', () => {
                 expect(adventurer.direction).toEqual('E')
             })
         })
@@ -50,7 +50,7 @@ describe('adventurer class', () => {
                 expect(result).toEqual([2, 2])
             })
 
-            test('updates direction', () =>  {
+            test('updates direction', () => {
                 expect(adventurer.direction).toEqual('O')
             })
         })
@@ -65,7 +65,7 @@ describe('adventurer class', () => {
                 expect(result).toEqual([2, 1])
             })
 
-            test('does not update direction', () =>  {
+            test('does not update direction', () => {
                 expect(adventurer.direction).toEqual('N')
             })
         })
