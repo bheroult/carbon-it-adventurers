@@ -19,6 +19,8 @@ Executer le linter :
 npm run lint
 ```
 
+## Emplacement des fichiers d'entrée et sortie
+Les fichiers entries.txt et output.txt doivent être placés à la racine du projet pour être exploités.
 
 ## Format des fichiers d'entrée et de sortie
 Chaque ligne d'instructions doit fournir une coordonnée disincte des autres lignes, ce afin de ne pas avoir plusieurs éléments sur la même case au début du jeu. Si un élément ou un aventurier ne peut être placé pour établir le plateau de jeu, une erreur sera levée.
