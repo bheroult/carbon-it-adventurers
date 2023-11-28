@@ -1,5 +1,5 @@
-import Board from './models/board.js'
-import { IncorrectEntriesFormatError } from './app-errors.js'
+import Board from '../models/board.js'
+import { IncorrectEntriesFormatError } from '../app-errors.js'
 
 /*
     Takes output from file reader, clean it and build a new board game
@@ -51,11 +51,11 @@ function readElementsPositions(formattedLines, gameBoard) {
 
         switch (line[0]) {
             case 'M':
-                gameBoard.setElementOnMap(coordX, coordY, line[0])
+                gameBoard.registerMountain(coordX, coordY, line[0])
                 break
             case 'T':
                 const numberOfTreasures = parseInt(line[3])
-                gameBoard.setElementOnMap(coordX, coordY, numberOfTreasures)
+                gameBoard.registerTreasure(coordX, coordY, numberOfTreasures)
                 break
             case 'A':
                 coordX = parseInt(line[2])

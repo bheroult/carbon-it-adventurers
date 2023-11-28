@@ -1,9 +1,12 @@
 import { describe, expect, test } from '@jest/globals'
 
-import instructionsParser from '../app/instructions-parser.js'
-import Board from '../app/models/board.js'
-import { IncorrectEntriesFormatError } from '../app/app-errors.js'
-import { CoordinatesAlreadyOccupiedError, CoordinatesOutOfMapError } from '../app/models/errors.js'
+import instructionsParser from '../../app/services/instructions-parser.js'
+import Board from '../../app/models/board.js'
+import { IncorrectEntriesFormatError } from '../../app/app-errors.js'
+import {
+    CoordinatesAlreadyOccupiedError,
+    CoordinatesOutOfMapError,
+} from '../../app/models/errors.js'
 
 describe('instructions parser', () => {
     let instructionsFileContet
@@ -55,10 +58,10 @@ describe('instructions parser', () => {
         test('returns new board game with correct map', () => {
             expect(result).toBeInstanceOf(Board)
 
-            const expectedMap = [                                                                                                                                                                                                                                                            
-                [ undefined, undefined, undefined, 2],
+            const expectedMap = [
+                [undefined, undefined, undefined, 2],
                 ['M', 'Indiana', undefined, undefined],
-                [ undefined, 'M', undefined, undefined]
+                [undefined, 'M', undefined, undefined],
             ]
             expect(result.map).toEqual(expectedMap)
         })
