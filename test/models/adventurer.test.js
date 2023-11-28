@@ -1,3 +1,4 @@
+import { describe, expect, test } from '@jest/globals'
 import Adventurer from "../../app/models/adventurer.js"
 
 describe('adventurer class', () => {
