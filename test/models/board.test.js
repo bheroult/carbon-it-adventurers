@@ -69,6 +69,51 @@ describe('board class', () => {
         })
     })
 
+    describe('isOutOfMap', () => {
+        let positionX
+        let positionY
+
+        beforeEach(() => {
+            board = new Board(4, 5)
+        })
+
+        describe('for x negative', () => {
+            beforeEach(() => {
+                positionX = -1
+                positionY = 2
+                result = board.isOutOfMap([positionX, positionY])
+            })
+
+            test('returns true', () => {
+                expect(result).toBeTruthy
+            })
+        })
+
+        describe('for y too far', () => {
+            beforeEach(() => {
+                positionX = 1
+                positionY = 7
+                result = board.isOutOfMap([positionX, positionY])
+            })
+
+            test('returns true', () => {
+                expect(result).toBeTruthy
+            })
+        })
+
+        describe('for x and y in correct ranges', () => {
+            beforeEach(() => {
+                positionX = 2
+                positionY = 2
+                result = board.isOutOfMap([positionX, positionY])
+            })
+
+            test('returns false', () => {
+                expect(result).toBeFalsy
+            })
+        })
+    })
+
     describe('registerAdventurer', () => {
         let name
         let positionX

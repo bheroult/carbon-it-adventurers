@@ -18,14 +18,18 @@ export default class Board {
     }
 
     setElementOnMap(elementCoordX, elementCoordY, value) {
-        const xOutOfMap = elementCoordX >= this.mapDimensionX || elementCoordX < 0
-        const yOutOfMap = elementCoordY >= this.mapDimensionY || elementCoordY < 0
-        if (xOutOfMap || yOutOfMap) throw new CoordinatesOutOfMapError()
+        if (this.isOutOfMap([elementCoordX, elementCoordY])) throw new CoordinatesOutOfMapError()
 
         const coordinatesCurrentValue = this.map[elementCoordX][elementCoordY]
         if (coordinatesCurrentValue) throw new CoordinatesAlreadyOccupiedError()
 
         this.map[elementCoordX][elementCoordY] = value
+    }
+
+    isOutOfMap([positionX, positionY]) {
+        const xOutOfMap = positionX >= this.mapDimensionX || positionX < 0
+        const yOutOfMap = positionY >= this.mapDimensionY || positionY < 0
+        return xOutOfMap || yOutOfMap
     }
 
     registerAdventurer(name, positionX, positionY, direction, movements) {
@@ -53,7 +57,7 @@ export default class Board {
 
             const xOutOfMap = newPosition[0] >= this.mapDimensionX || newPosition[0] < 0
             const yOutOfMap = newPosition[1] >= this.mapDimensionY|| newPosition[1] < 0
-            if (xOutOfMap || yOutOfMap) return
+            if (this.isOutOfMap(newPosition)) return
 
             const positionCurrentValue = this.map[newPosition[0]][newPosition[1]]
             const positionIsFree = !positionCurrentValue
